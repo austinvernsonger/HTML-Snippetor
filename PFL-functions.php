@@ -8,7 +8,7 @@ if(!function_exists('PFL_ihs_plugin_get_version'))
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 		$plugin_folder = get_plugins( '/' . plugin_basename( dirname( PFL_INSERT_HTML_PLUGIN_FILE ) ) );
 		// 		print_r($plugin_folder);
-		return $plugin_folder['insert-html-snippet.php']['Version'];
+		return $plugin_folder['HTML-Snippetor.php']['Version'];
 	}
 }
 
