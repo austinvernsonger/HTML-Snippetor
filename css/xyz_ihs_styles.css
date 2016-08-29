@@ -57,7 +57,7 @@ label{
 legend{
 	font-size: 14px;
 }
-#content_PFL_ihs_snippet_selecterList_text{
+#content_PFL_HS_snippet_selecterList_text{
 	width:90px;
 }
 
@@ -228,7 +228,7 @@ background-position: left  bottom;
 }
 
 
-#submit_ihs{
+#submit_HS{
 	background:#25A6E1;
 	background:-moz-linear-gradient(top,#25A6E1 0%,#188BC0 100%);
 	background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,#25A6E1),color-stop(100%,#188BC0));
@@ -303,6 +303,6 @@ background-position: left  bottom;
     padding:0;
     }
     
-i.PFL-ihs-own-icon {
+i.PFL-HS-own-icon {
 	background-image: url('../images/logo.png');
 }

@@ -5,7 +5,7 @@ if (!is_user_logged_in())
 if (!isset($shortcodesPFLEH))
     $shortcodesPFLEH = new PFL_Insert_Html_TinyMCESelector();
 global $wpdb;
-$PFL_snippets_arr = $wpdb->get_results($wpdb->prepare("SELECT id,title FROM " . $wpdb->prefix . "PFL_ihs_short_code WHERE status=%d  ORDER BY id DESC", 1), ARRAY_A);
+$PFL_snippets_arr = $wpdb->get_results($wpdb->prepare("SELECT id,title FROM " . $wpdb->prefix . "PFL_HS_short_code WHERE status=%d  ORDER BY id DESC", 1), ARRAY_A);
 //         print_r($PFL_snippets_arr);
 if (count($PFL_snippets_arr) == 0)
     die;
@@ -21,7 +21,7 @@ if (floatval(get_bloginfo('version')) >= 3.9) {
 ?>', {
             title: 'HTML Snippetor',
             type: 'menubutton',
-            icon: 'icon PFL-ihs-own-icon',
+            icon: 'icon PFL-HS-own-icon',
             menu: [
 <?php
     foreach ($PFL_snippets_arr as $key => $val) {
@@ -30,7 +30,7 @@ if (floatval(get_bloginfo('version')) >= 3.9) {
                     text: '<?php
         echo addslashes($val['title']);
 ?>',
-                    value: '[PFL-ihs snippet="<?php
+                    value: '[PFL-HS snippet="<?php
         echo addslashes($val['title']);
 ?>"]',
                     onclick: function() {
@@ -50,7 +50,7 @@ if (floatval(get_bloginfo('version')) >= 3.9) {
     $PFL_snippets = array(
         'title' => 'HTML Snippetor',
         'url' => plugins_url('insert-html-snippet/images/logo.png'),
-        'PFL_ihs_snippets' => $PFL_snippets_arr
+        'PFL_HS_snippets' => $PFL_snippets_arr
     );
 ?>
 
@@ -81,9 +81,9 @@ var tinymce_<?php
     echo $shortcodesPFLEH->buttonName;
 ?>.insert = function(){
                 if(this.v && this.v != ''){
-                tinymce.execCommand('mceInsertContent', false, '[PFL-ihs snippet="'+tinymce_<?php
+                tinymce.execCommand('mceInsertContent', false, '[PFL-HS snippet="'+tinymce_<?php
     echo $shortcodesPFLEH->buttonName;
-?>.PFL_ihs_snippets[this.v]['title']+'"]');
+?>.PFL_HS_snippets[this.v]['title']+'"]');
                 }
             };
 
@@ -123,12 +123,12 @@ var tinymce_<?php
                 c.onRenderMenu.add(function(c, m){
                          for (var id in tinymce_<?php
     echo $shortcodesPFLEH->buttonName;
-?>.PFL_ihs_snippets){
+?>.PFL_HS_snippets){
                             m.add({
                                 v : id,
                                 title : tinymce_<?php
     echo $shortcodesPFLEH->buttonName;
-?>.PFL_ihs_snippets[id]['title'],
+?>.PFL_HS_snippets[id]['title'],
                                 onclick : tinymce_<?php
     echo $shortcodesPFLEH->buttonName;
 ?>.insert

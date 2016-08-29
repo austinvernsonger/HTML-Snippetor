@@ -1,6 +1,6 @@
 <?php
 
-function PFL_ihs_network_install($networkwide) {
+function PFL_HS_network_install($networkwide) {
 	global $wpdb;
 
 	if (function_exists('is_multisite') && is_multisite()) {
@@ -11,27 +11,27 @@ function PFL_ihs_network_install($networkwide) {
 			$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 			foreach ($blogids as $blog_id) {
 				switch_to_blog($blog_id);
-				PFL_ihs_install();
+				PFL_HS_install();
 			}
 			switch_to_blog($old_blog);
 			return;
 		}
 	}
-	PFL_ihs_install();
+	PFL_HS_install();
 }
 
 
-function PFL_ihs_install(){
+function PFL_HS_install(){
 	
 	global $wpdb;
 	//global $current_user; get_currentuserinfo();
-	if(get_option('PFL_ihs_sort_order')=='')
+	if(get_option('PFL_HS_sort_order')=='')
 	{
-		add_option('PFL_ihs_sort_order','desc');
+		add_option('PFL_HS_sort_order','desc');
 	}
-	if(get_option('PFL_ihs_sort_field_name')=='')
+	if(get_option('PFL_HS_sort_field_name')=='')
 	{
-		add_option('PFL_ihs_sort_field_name','id');
+		add_option('PFL_HS_sort_field_name','id');
 	}
 	
 	
@@ -40,8 +40,8 @@ function PFL_ihs_install(){
 			add_option("PFL_credit_link",0);
 	}
 
-	add_option('PFL_ihs_limit',20);
-	$queryInsertHtml = "CREATE TABLE IF NOT EXISTS  ".$wpdb->prefix."PFL_ihs_short_code (
+	add_option('PFL_HS_limit',20);
+	$queryInsertHtml = "CREATE TABLE IF NOT EXISTS  ".$wpdb->prefix."PFL_HS_short_code (
 	  `id` int NOT NULL AUTO_INCREMENT,
 		  `title` varchar(1000) COLLATE utf8_unicode_ci NOT NULL,
 		  `content` longtext COLLATE utf8_unicode_ci NOT NULL,
@@ -52,7 +52,7 @@ function PFL_ihs_install(){
 	$wpdb->query($queryInsertHtml);
 }
 
-register_activation_hook( PFL_INSERT_HTML_PLUGIN_FILE ,'PFL_ihs_network_install');
+register_activation_hook( PFL_INSERT_HTML_PLUGIN_FILE ,'PFL_HS_network_install');
 
 
 

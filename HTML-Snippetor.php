@@ -56,12 +56,12 @@ require( dirname( __FILE__ ) . '/direct_call.php' );
 
 
 
-if(get_option('PFL_credit_link')=="ihs"){
+if(get_option('PFL_credit_link')=="HS"){
 
-	add_action('wp_footer', 'PFL_ihs_credit');
+	add_action('wp_footer', 'PFL_HS_credit');
 
 }
-function PFL_ihs_credit() {
+function PFL_HS_credit() {
 	$content = '<div style="width:100%;text-align:center; font-size:11px; clear:both"></div>';
 	echo $content;
 }

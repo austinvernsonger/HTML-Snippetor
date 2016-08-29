@@ -1,8 +1,8 @@
 <?php
 
-if(!function_exists('PFL_ihs_plugin_get_version'))
+if(!function_exists('PFL_HS_plugin_get_version'))
 {
-	function PFL_ihs_plugin_get_version()
+	function PFL_HS_plugin_get_version()
 	{
 		if ( ! function_exists( 'get_plugins' ) )
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -33,8 +33,8 @@ if(!function_exists('PFL_trim_deep'))
 }
 
 
-if(!function_exists('PFL_ihs_links')){
-function PFL_ihs_links($links, $file) {
+if(!function_exists('PFL_HS_links')){
+function PFL_HS_links($links, $file) {
 	$base = plugin_basename(PFL_INSERT_HTML_PLUGIN_FILE);
 	if ($file == $base) {
 
@@ -47,6 +47,6 @@ function PFL_ihs_links($links, $file) {
 	return $links;
 }
 }
-add_filter( 'plugin_row_meta','PFL_ihs_links',10,2);
+add_filter( 'plugin_row_meta','PFL_HS_links',10,2);
 
 ?>

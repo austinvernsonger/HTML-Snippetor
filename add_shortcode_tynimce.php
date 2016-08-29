@@ -2,7 +2,7 @@
 if (!class_exists('PFL_Insert_Html_TinyMCESelector')):
     class PFL_Insert_Html_TinyMCESelector
     {
-        var $buttonName = 'PFL_ihs_snippet_selector';
+        var $buttonName = 'PFL_HS_snippet_selector';
         function addSelector()
         {
             if (!current_user_can('edit_posts') && !current_user_can('edit_pages'))
@@ -26,7 +26,7 @@ if (!class_exists('PFL_Insert_Html_TinyMCESelector')):
         }
         function registerTmcePlugin($plugin_array)
         {
-            $plugin_array[$this->buttonName] = get_site_url() . '/index.php?wp_ihs=editor_plugin_js';
+            $plugin_array[$this->buttonName] = get_site_url() . '/index.php?wp_HS=editor_plugin_js';
             if (get_user_option('rich_editing') == 'true')
             //var_dump($plugin_array);
                 return $plugin_array;

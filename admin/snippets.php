@@ -1,11 +1,11 @@
 <?php 
 global $wpdb;
 $_GET = stripslashes_deep($_GET);
-$PFL_ihs_message = '';
-if(isset($_GET['PFL_ihs_msg'])){
-	$PFL_ihs_message = $_GET['PFL_ihs_msg'];
+$PFL_HS_message = '';
+if(isset($_GET['PFL_HS_msg'])){
+	$PFL_HS_message = $_GET['PFL_HS_msg'];
 }
-if($PFL_ihs_message == 1){
+if($PFL_HS_message == 1){
 
 	?>
 <div class="system_notice_area_style1" id="system_notice_area">
@@ -15,7 +15,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 <?php
 
 }
-if($PFL_ihs_message == 2){
+if($PFL_HS_message == 2){
 
 	?>
 <div class="system_notice_area_style0" id="system_notice_area">
@@ -25,7 +25,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 <?php
 
 }
-if($PFL_ihs_message == 3){
+if($PFL_HS_message == 3){
 
 	?>
 <div class="system_notice_area_style1" id="system_notice_area">
@@ -35,7 +35,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 <?php
 
 }
-if($PFL_ihs_message == 4){
+if($PFL_HS_message == 4){
 
 	?>
 <div class="system_notice_area_style1" id="system_notice_area">
@@ -45,7 +45,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 <?php
 
 }
-if($PFL_ihs_message == 5){
+if($PFL_HS_message == 5){
 
 	?>
 <div class="system_notice_area_style1" id="system_notice_area">
@@ -68,15 +68,15 @@ id="system_notice_area_dismiss">Dismiss</span>
 			<?php 
 			global $wpdb;
 			$pagenum = isset( $_GET['pagenum'] ) ? absint( $_GET['pagenum'] ) : 1;
-			$limit = get_option('PFL_ihs_limit');			
+			$limit = get_option('PFL_HS_limit');			
 			$offset = ( $pagenum - 1 ) * $limit;
-			$field=get_option('PFL_ihs_sort_field_name');
-			$order=get_option('PFL_ihs_sort_order');
+			$field=get_option('PFL_HS_sort_field_name');
+			$order=get_option('PFL_HS_sort_order');
 			
-		$entries = $wpdb->get_results( "SELECT * FROM ".$wpdb->prefix."PFL_ihs_short_code  ORDER BY  $field $order LIMIT $offset,$limit" );
+		$entries = $wpdb->get_results( "SELECT * FROM ".$wpdb->prefix."PFL_HS_short_code  ORDER BY  $field $order LIMIT $offset,$limit" );
 			
 			?>
-			<input  id="submit_ihs"
+			<input  id="submit_HS"
 				style="cursor: pointer; margin-bottom:10px; margin-left:8px;" type="button"
 				name="textFieldButton2" value="Add New HTML Snippet"
 				 onClick='document.location.href="<?php echo admin_url('admin.php?page=insert-html-snippet-manage&action=snippet-add');?>"'>
@@ -104,7 +104,7 @@ id="system_notice_area_dismiss">Dismiss</span>
 						<td><?php 
 						if($entry->status == 2){echo 'NA';}
 						else
-						echo '[PFL-ihs snippet="'.esc_html($entry->title).'"]';
+						echo '[PFL-HS snippet="'.esc_html($entry->title).'"]';
 						?></td>
 						<td>
 							<?php 
@@ -163,13 +163,13 @@ id="system_notice_area_dismiss">Dismiss</span>
 				</tbody>
 			</table>
 			
-			<input  id="submit_ihs"
+			<input  id="submit_HS"
 				style="cursor: pointer; margin-top:10px;margin-left:8px;" type="button"
 				name="textFieldButton2" value="Add New HTML Snippet"
 				 onClick='document.location.href="<?php echo admin_url('admin.php?page=insert-html-snippet-manage&action=snippet-add');?>"'>
 			
 			<?php
-			$total = $wpdb->get_var( "SELECT COUNT(`id`) FROM ".$wpdb->prefix."PFL_ihs_short_code" );
+			$total = $wpdb->get_var( "SELECT COUNT(`id`) FROM ".$wpdb->prefix."PFL_HS_short_code" );
 			$num_of_pages = ceil( $total / $limit );
 
 			$page_links = paginate_links( array(

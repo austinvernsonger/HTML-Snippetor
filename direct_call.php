@@ -1,16 +1,16 @@
 <?php
-function PFL_ihs_plugin_query_vars($vars)
+function PFL_HS_plugin_query_vars($vars)
 {
-    $vars[] = 'wp_ihs';
+    $vars[] = 'wp_HS';
     return $vars;
 }
-add_filter('query_vars', 'PFL_ihs_plugin_query_vars');
-function PFL_ihs_plugin_parse_request($wp)
+add_filter('query_vars', 'PFL_HS_plugin_query_vars');
+function PFL_HS_plugin_parse_request($wp)
 {
     /*confirmation*/
-    if (array_key_exists('wp_ihs', $wp->query_vars) && $wp->query_vars['wp_ihs'] == 'editor_plugin_js') {
+    if (array_key_exists('wp_HS', $wp->query_vars) && $wp->query_vars['wp_HS'] == 'editor_plugin_js') {
         require(dirname(__FILE__) . '/editor_plugin.js.php');
         die;
     }
 }
-add_action('parse_request', 'PFL_ihs_plugin_parse_request');
+add_action('parse_request', 'PFL_HS_plugin_parse_request');

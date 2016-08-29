@@ -4,13 +4,13 @@ global $wpdb;
 global $current_user;
 get_currentuserinfo();
 
-$PFL_ihs_snippetId = $_GET['snippetId'];
+$PFL_HS_snippetId = $_GET['snippetId'];
 
-$PFL_ihs_message = '';
-if(isset($_GET['PFL_ihs_msg'])){
-	$PFL_ihs_message = $_GET['PFL_ihs_msg'];
+$PFL_HS_message = '';
+if(isset($_GET['PFL_HS_msg'])){
+	$PFL_HS_message = $_GET['PFL_HS_msg'];
 }
-if($PFL_ihs_message == 1){
+if($PFL_HS_message == 1){
 
 	?>
 <div class="system_notice_area_style1" id="system_notice_area">
@@ -31,26 +31,26 @@ if(isset($_POST) && isset($_POST['updateSubmit'])){
 	$_POST = stripslashes_deep($_POST);
 	$_POST = PFL_trim_deep($_POST);
 	
-	$PFL_ihs_snippetId = $_GET['snippetId'];
+	$PFL_HS_snippetId = $_GET['snippetId'];
 	
-	$temp_PFL_ihs_title = str_replace(' ', '', $_POST['snippetTitle']);
-	$temp_PFL_ihs_title = str_replace('-', '', $temp_PFL_ihs_title);
+	$temp_PFL_HS_title = str_replace(' ', '', $_POST['snippetTitle']);
+	$temp_PFL_HS_title = str_replace('-', '', $temp_PFL_HS_title);
 	
-	$PFL_ihs_title = str_replace(' ', '-', $_POST['snippetTitle']);
-	$PFL_ihs_content = $_POST['snippetContent'];
+	$PFL_HS_title = str_replace(' ', '-', $_POST['snippetTitle']);
+	$PFL_HS_content = $_POST['snippetContent'];
 
-	if($PFL_ihs_title != "" && $PFL_ihs_content != ""){
+	if($PFL_HS_title != "" && $PFL_HS_content != ""){
 		
-		if(ctype_alnum($temp_PFL_ihs_title))
+		if(ctype_alnum($temp_PFL_HS_title))
 		{
-		$snippet_count = $wpdb->query($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'PFL_ihs_short_code WHERE id!=%d AND title=%s LIMIT 0,1',$PFL_ihs_snippetId,$PFL_ihs_title)) ;
+		$snippet_count = $wpdb->query($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'PFL_HS_short_code WHERE id!=%d AND title=%s LIMIT 0,1',$PFL_HS_snippetId,$PFL_HS_title)) ;
 		
 		if($snippet_count == 0){
-			$PFL_shortCode = '[PFL-ihs snippet="'.$PFL_ihs_title.'"]';
+			$PFL_shortCode = '[PFL-HS snippet="'.$PFL_HS_title.'"]';
 			
-			$wpdb->update($wpdb->prefix.'PFL_ihs_short_code', array('title'=>$PFL_ihs_title,'content'=>$PFL_ihs_content,'short_code'=>$PFL_shortCode,), array('id'=>$PFL_ihs_snippetId));
+			$wpdb->update($wpdb->prefix.'PFL_HS_short_code', array('title'=>$PFL_HS_title,'content'=>$PFL_HS_content,'short_code'=>$PFL_shortCode,), array('id'=>$PFL_HS_snippetId));
 			
-			header("Location:".admin_url('admin.php?page=insert-html-snippet-manage&action=snippet-edit&snippetId='.$PFL_ihs_snippetId.'&PFL_ihs_msg=1'));
+			header("Location:".admin_url('admin.php?page=insert-html-snippet-manage&action=snippet-edit&snippetId='.$PFL_HS_snippetId.'&PFL_HS_msg=1'));
 	
 		}
 		else{
@@ -87,7 +87,7 @@ if(isset($_POST) && isset($_POST['updateSubmit'])){
 global $wpdb;
 
 
-$snippetDetails = $wpdb->get_results($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'PFL_ihs_short_code WHERE id=%d LIMIT 0,1',$PFL_ihs_snippetId )) ;
+$snippetDetails = $wpdb->get_results($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'PFL_HS_short_code WHERE id=%d LIMIT 0,1',$PFL_HS_snippetId )) ;
 $snippetDetails = $snippetDetails[0];
 
 ?>

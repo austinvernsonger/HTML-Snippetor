@@ -19,9 +19,9 @@ class PFL_Insert_Html_Widget extends WP_Widget {
         extract( $args );
         global $wpdb;
         $title 		= apply_filters('widget_title', $instance['title']);
-       	$PFL_ihs_id = $instance['message'];
-       	//echo "SELECT content FROM ".$wpdb->prefix."PFL_ihs_short_code  WHERE id='$PFL_ihs_title'";die;
-        $entries = $wpdb->get_results($wpdb->prepare( "SELECT content FROM ".$wpdb->prefix."PFL_ihs_short_code  WHERE id=%d",$PFL_ihs_id ));
+       	$PFL_HS_id = $instance['message'];
+       	//echo "SELECT content FROM ".$wpdb->prefix."PFL_HS_short_code  WHERE id='$PFL_HS_title'";die;
+        $entries = $wpdb->get_results($wpdb->prepare( "SELECT content FROM ".$wpdb->prefix."PFL_HS_short_code  WHERE id=%d",$PFL_HS_id ));
         
         $entry = $entries[0];
 
@@ -45,7 +45,7 @@ class PFL_Insert_Html_Widget extends WP_Widget {
     /** @see WP_Widget::form -- do not rename this */
     function form($instance) {	
     	global $wpdb;
-    	$entries = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."PFL_ihs_short_code WHERE status=%d  ORDER BY id DESC",1 ));
+    	$entries = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."PFL_HS_short_code WHERE status=%d  ORDER BY id DESC",1 ));
     	
     	
     	if(isset($instance['title'])){

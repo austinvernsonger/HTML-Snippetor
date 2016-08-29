@@ -9,12 +9,12 @@ if(get_option('PFL_credit_link')=="0"){
 	?>
 <div style="float:left;background-color: #FFECB3;border-radius:5px;padding: 0px 5px;margin-top: 10px;border: 1px solid #E0AB1B" id="PFL_backlink_div">
 	
-	Please do a favour by enabling backlink to our site. <a id="PFL_ihs_backlink" style="cursor: pointer;" >Okay, Enable</a>.
+	Please do a favour by enabling backlink to our site. <a id="PFL_HS_backlink" style="cursor: pointer;" >Okay, Enable</a>.
 <script type="text/javascript">
 
 	jQuery(document).ready(function() {
 
-	jQuery('#PFL_ihs_backlink').click(function() {
+	jQuery('#PFL_HS_backlink').click(function() {
 	var dataString = { 
 			action: 'ajax_backlink', 
 			enable: 1

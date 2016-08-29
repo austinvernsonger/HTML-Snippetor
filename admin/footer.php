@@ -80,8 +80,8 @@ function verify_fields()
 <?php global $current_user; get_currentuserinfo(); ?>
 <form action="http://PFLscripts.com/newsletter/index.php?page=list/subscribe" method="post" name="email_subscription" id="email_subscription" >
 <input type="hidden" name="fieldNameIds" value="1,">
-<input type="hidden" name="redirActive" value="http://PFLscripts.com/subscription/pending/PFLWPIHSFRE">
-<input type="hidden" name="redirPending" value="http://PFLscripts.com/subscription/active/PFLWPIHSFRE">
+<input type="hidden" name="redirActive" value="http://PFLscripts.com/subscription/pending/PFLWPHSFRE">
+<input type="hidden" name="redirPending" value="http://PFLscripts.com/subscription/active/PFLWPHSFRE">
 <input type="hidden" name="mode" value="1">
    
 <b>Stay tuned to our updates :</b>  
@@ -108,7 +108,7 @@ Email Address :
 type="text" value="<?php 	echo $current_user->user_email; ?>" /><span style="color:#FF0000">*</span>            
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input id="submit_ihs" style="color:#FFFFFF;border-radius:4px;border:1px solid #1A87B9;" type="submit" value="Subscribe" name="Submit"  onclick="javascript: if(!verify_fields()) return false; " />
+<input id="submit_HS" style="color:#FFFFFF;border-radius:4px;border:1px solid #1A87B9;" type="submit" value="Subscribe" name="Submit"  onclick="javascript: if(!verify_fields()) return false; " />
 
 <input type="hidden" name="listName" value="6,1,"/>
 </form>

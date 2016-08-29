@@ -1,15 +1,15 @@
 <?php 
 global $wpdb;
 
-add_shortcode('PFL-ihs','PFL_ihs_display_content');		
+add_shortcode('PFL-HS','PFL_HS_display_content');		
 
-function PFL_ihs_display_content($PFL_snippet_name){
+function PFL_HS_display_content($PFL_snippet_name){
 	global $wpdb;
 
 	if(is_array($PFL_snippet_name)){
 		$snippet_name = $PFL_snippet_name['snippet'];
 		
-		$query = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."PFL_ihs_short_code WHERE title=%s" ,$snippet_name));
+		$query = $wpdb->get_results($wpdb->prepare( "SELECT * FROM ".$wpdb->prefix."PFL_HS_short_code WHERE title=%s" ,$snippet_name));
 		
 		if(count($query)>0){
 			

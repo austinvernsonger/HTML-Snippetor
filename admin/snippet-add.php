@@ -11,22 +11,22 @@ if(isset($_POST) && isset($_POST['addSubmit'])){
 // 		print_r($_POST);
 // 		die("JJJ");
 
-	$temp_PFL_ihs_title = str_replace(' ', '', $_POST['snippetTitle']);
-	$temp_PFL_ihs_title = str_replace('-', '', $temp_PFL_ihs_title);
+	$temp_PFL_HS_title = str_replace(' ', '', $_POST['snippetTitle']);
+	$temp_PFL_HS_title = str_replace('-', '', $temp_PFL_HS_title);
 	
-	$PFL_ihs_title = str_replace(' ', '-', $_POST['snippetTitle']);
-	$PFL_ihs_content = $_POST['snippetContent'];
+	$PFL_HS_title = str_replace(' ', '-', $_POST['snippetTitle']);
+	$PFL_HS_content = $_POST['snippetContent'];
 
-	if($PFL_ihs_title != "" && $PFL_ihs_content != ""){
-		if(ctype_alnum($temp_PFL_ihs_title))
+	if($PFL_HS_title != "" && $PFL_HS_content != ""){
+		if(ctype_alnum($temp_PFL_HS_title))
 		{
 		
-		$snippet_count = $wpdb->query($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'PFL_ihs_short_code WHERE title=%s' ,$PFL_ihs_title)) ;
+		$snippet_count = $wpdb->query($wpdb->prepare( 'SELECT * FROM '.$wpdb->prefix.'PFL_HS_short_code WHERE title=%s' ,$PFL_HS_title)) ;
 		if($snippet_count == 0){
-			$PFL_shortCode = '[PFL-ihs snippet="'.$PFL_ihs_title.'"]';
-			$wpdb->insert($wpdb->prefix.'PFL_ihs_short_code', array('title' =>$PFL_ihs_title,'content'=>$PFL_ihs_content,'short_code'=>$PFL_shortCode,'status'=>'1'),array('%s','%s','%s','%d'));
+			$PFL_shortCode = '[PFL-HS snippet="'.$PFL_HS_title.'"]';
+			$wpdb->insert($wpdb->prefix.'PFL_HS_short_code', array('title' =>$PFL_HS_title,'content'=>$PFL_HS_content,'short_code'=>$PFL_shortCode,'status'=>'1'),array('%s','%s','%s','%d'));
 			
-			header("Location:".admin_url('admin.php?page=insert-html-snippet-manage&PFL_ihs_msg=1'));
+			header("Location:".admin_url('admin.php?page=insert-html-snippet-manage&PFL_HS_msg=1'));
 		}else{
 			?>
 			<div class="system_notice_area_style0" id="system_notice_area">
